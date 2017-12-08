@@ -1,15 +1,10 @@
+var conexao = require('../../config/dbConnection.js');
+
 module.exports = function(app){
 
-var mysql = require('mysql');
+    var conn = conexao();
 
     app.get('/usuarios', function(req, res){
-
-        var conn =  mysql.createConnection({
-            host : 'localhost',
-            user : 'root',
-            password : '',
-            database : 'portal_noticias'
-        });
 
         conn.query('SELECT * FROM usuarios' , function(error, result){
 
